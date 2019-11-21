@@ -1,6 +1,10 @@
 FROM balenalib/rpi-raspbian:latest
 MAINTAINER "https://github.com/breakersun"
 
+ENV TZ=Asia/Shanghai
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 RUN apt-get update && apt-get install -y \
     vim \
     python3 \
@@ -16,6 +20,7 @@ RUN apt-get update && apt-get install -y \
     libboost-python-dev \
     git \
     openssh-server \
+    tzdata \
     --no-install-recommends
 
 RUN pip3 install bluepy
