@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
     git \
     openssh-server \
     tzdata \
+    screen \
     --no-install-recommends
 
 RUN pip3 install bluepy
